@@ -1,0 +1,167 @@
+*{box-sizing:border-box}
+body{margin:0;background:#f2f6f3;color:#18291f;font-family:Arial,sans-serif}
+header{background:#102b20;color:white;padding:16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5}
+.logo{background:#e7c46b;color:#102b20;font-weight:bold;font-size:27px;width:45px;height:45px;display:grid;place-items:center;border-radius:12px}
+header h1{font-size:15px;margin:0;letter-spacing:.7px}
+header p{font-size:9px;letter-spacing:1px;color:#b9d2c2;margin:5px 0 0}
+.offline{margin-left:auto;font-size:10px;color:#7de49a}
+main{max-width:1100px;margin:auto;padding:18px}
+.welcome{background:linear-gradient(120deg,#123d2a,#218052);color:white;padding:25px;border-radius:15px;margin-bottom:17px}
+.welcome small{color:#e7c46b;font-weight:bold}
+.welcome h2{margin:8px 0;font-size:25px}
+.welcome p{color:#d8e9dd}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.stats div{background:white;padding:15px;border-radius:12px;border:1px solid #e0e9e2}
+.stats span{display:block;font-size:12px;color:#718078}
+.stats strong{display:block;font-size:23px;margin-top:9px;color:#176b45}
+nav{display:flex;gap:6px;overflow:auto;border-bottom:1px solid #dbe5dd;padding-bottom:12px}
+nav button{border:0;padding:11px 14px;background:#e4ece6;border-radius:8px;white-space:nowrap;color:#244333;font-weight:bold}
+nav button.active{background:#176b45;color:white}
+.tab{padding-top:22px}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:10px}
+h2{font-size:21px;margin:0 0 7px}
+p{color:#6c7b70;font-size:13px}
+button{cursor:pointer}
+.primary,.secondary,.danger{border:0;border-radius:8px;padding:12px 15px;font-weight:bold;margin:5px 4px 5px 0}
+.primary{background:#176b45;color:white}
+.secondary{background:#e4ece6;color:#244333}
+.danger{background:#b73535;color:white}
+.filters{display:grid;grid-template-columns:2fr 1fr;gap:9px;margin:15px 0}
+input,select{width:100%;padding:12px;border:1px solid #d6e1d8;border-radius:8px;background:white;font-size:14px;margin-top:6px}
+.portals{display:flex;gap:7px;overflow:auto;padding:5px 0 15px}
+.portal{border:1px solid #d4e0d7;background:white;color:#315440;border-radius:25px;padding:9px 13px;white-space:nowrap;font-size:12px}
+.portal.active{background:#176b45;color:white}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.card{background:white;border:1px solid #e0e8e2;border-radius:13px;overflow:hidden}
+.photo{height:155px;background:#edf3ef;display:grid;place-items:center;color:#8b9a90;font-size:12px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.info{padding:12px}
+.info h3{font-size:15px;margin:0 0 5px}
+.meta{font-size:11px;color:#718078}
+.price{color:#176b45;font-weight:bold;font-size:17px;margin-top:8px}
+.stock{display:flex;justify-content:space-between;border-top:1px solid #e6ece7;padding-top:10px;margin-top:10px;font-size:12px}
+.stock strong{font-size:17px}
+.status{font-size:10px;color:#176b45;background:#e1f3e6;padding:5px 7px;border-radius:15px}
+.low{background:#fff0d1;color:#92600b}
+.out{background:#fbe1e1;color:#b73535}
+.actions{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.actions button{border:0;border-radius:6px;padding:8px;font-size:11px;font-weight:bold;background:#e7eee8;color:#254433}
+.actions .sell{background:#176b45;color:white}
+.actions .delete{background:#fbe5e5;color:#a52c2c}
+.empty{text-align:center;background:white;padding:25px;border-radius:10px}
+form label{display:block;font-size:13px;font-weight:bold;margin:13px 0}
+#productForm{background:white;border:1px solid #e0e8e2;padding:17px;border-radius:12px}
+#preview{height:140px;border:1px dashed #bdcfc1;background:#f7faf8;border-radius:9px;display:grid;place-items:center;color:#829188;margin:12px 0;overflow:hidden}
+#preview img{height:100%;max-width:100%;object-fit:contain}
+.table-wrap{overflow:auto;background:white;margin-top:15px}
+table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #e2e9e3;font-size:12px}
+th{background:#eaf1ec}
+footer{text-align:center;color:#849188;padding:30px 0;font-size:11px}
+dialog{border:0;border-radius:13px;width:min(400px,92%);padding:20px;box-shadow:0 10px 50px #0005}
+dialog::backdrop{background:#0009}
+#message{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102b20;color:white;padding:12px 18px;border-radius:9px;display:none;z-index:20;font-size:13px}
+hr{border:0;border-top:1px solid #dce5de;margin:22px 0}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.heading{align-items:flex-start}.heading .primary{font-size:11px}.photo{height:120px}}
+@media(max-width:420px){main{padding:12px}.products{gap:8px}.info{padding:9px}.info h3{font-size:13px}.price{font-size:15px}.stats strong{font-size:20px}header h1{font-size:11px}}
+@media print{header,nav,.welcome,.stats,.filters,.portals,.actions,footer,button{display:none!important}}
+
+/* PAMAC PURPLE, ORANGE AND GREEN THEME */
+:root {
+  --pamac-purple: #7138a8;
+  --pamac-orange: #ff8c24;
+  --pamac-green: #159447;
+}
+
+body {
+  background: #170d24 !important;
+  color: #ffffff;
+}
+
+header, .header, nav, .topbar {
+  background: #32134d !important;
+}
+
+button, .btn, .primary-btn {
+  background: var(--pamac-orange) !important;
+  color: #20102b !important;
+  border-color: var(--pamac-orange) !important;
+}
+
+.portal.active, .active {
+  background: var(--pamac-purple) !important;
+  color: white !important;
+}
+
+.product, .product-card, .stat-card, .card, .panel {
+  border-color: #7545a0 !important;
+}
+
+.sell, .available, .success {
+  background: var(--pamac-green) !important;
+  color: white !important;
+}
+
+/* New sales dashboard */
+#pamac-sales-summary {
+  background: #241136;
+  border: 2px solid var(--pamac-purple);
+  border-radius: 16px;
+  padding: 15px;
+  margin: 12px;
+  color: white;
+}
+
+.pamac-heading {
+  font-size: 19px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 14px;
+  color: #ffad4d;
+}
+
+.pamac-sales-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.pamac-sales-card {
+  border-radius: 12px;
+  padding: 12px 5px;
+  text-align: center;
+  min-width: 0;
+}
+
+.pamac-sales-card.today {
+  background: #563087;
+}
+
+.pamac-sales-card.week {
+  background: #a94f0d;
+}
+
+.pamac-sales-card.month {
+  background: #126b38;
+}
+
+.pamac-sales-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.pamac-sales-number {
+  font-size: 27px;
+  font-weight: 900;
+  margin: 7px 0;
+}
+
+.pamac-sales-unit {
+  font-size: 10px;
+}
+
+@media (max-width: 360px) {
+  .pamac-sales-grid {
+    grid-template-columns: 1fr;
+  }
+}
