@@ -166,96 +166,6 @@ button, .btn, .primary-btn {
   }
 }
 
-/* PAMAC THEME SWITCH BUTTON */
-#pamac-theme-toggle {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 99999;
-  padding: 10px 14px;
-  border: 2px solid #ff922b;
-  border-radius: 25px;
-  background: #7138a8 !important;
-  color: white !important;
-  font-size: 13px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 3px 12px rgba(0,0,0,.25);
-}
-
-/* DEFAULT DARK MODE */
-body[data-pamac-theme="dark"] {
-  background: #170d24 !important;
-  color: #ffffff !important;
-}
-
-body[data-pamac-theme="dark"] .card,
-body[data-pamac-theme="dark"] .panel,
-body[data-pamac-theme="dark"] .product-card,
-body[data-pamac-theme="dark"] .product,
-body[data-pamac-theme="dark"] .stat-card {
-  background: #29183a !important;
-  color: #ffffff !important;
-}
-
-/* WHITE MODE */
-body[data-pamac-theme="light"] {
-  background: #f5f3f8 !important;
-  color: #24152f !important;
-}
-
-body[data-pamac-theme="light"] header,
-body[data-pamac-theme="light"] nav,
-body[data-pamac-theme="light"] .header,
-body[data-pamac-theme="light"] .topbar {
-  background: #ffffff !important;
-  color: #45206b !important;
-}
-
-body[data-pamac-theme="light"] .card,
-body[data-pamac-theme="light"] .panel,
-body[data-pamac-theme="light"] .product-card,
-body[data-pamac-theme="light"] .product,
-body[data-pamac-theme="light"] .stat-card,
-body[data-pamac-theme="light"] section {
-  background-color: #ffffff !important;
-  color: #24152f !important;
-  border-color: #d9c8e8 !important;
-}
-
-body[data-pamac-theme="light"] input,
-body[data-pamac-theme="light"] select,
-body[data-pamac-theme="light"] textarea {
-  background: #ffffff !important;
-  color: #24152f !important;
-  border-color: #bda5d2 !important;
-}
-
-body[data-pamac-theme="light"] label,
-body[data-pamac-theme="light"] p,
-body[data-pamac-theme="light"] h1,
-body[data-pamac-theme="light"] h2,
-body[data-pamac-theme="light"] h3,
-body[data-pamac-theme="light"] td,
-body[data-pamac-theme="light"] th {
-  color: #24152f;
-}
-
-body[data-pamac-theme="light"] #pamac-sales-summary {
-  background: #ffffff !important;
-  color: #24152f !important;
-  border-color: #7138a8 !important;
-}
-
-body[data-pamac-theme="light"] #pamac-sales-summary .pamac-heading {
-  color: #7138a8 !important;
-}
-
-body[data-pamac-theme="light"] #pamac-sales-summary .pamac-sales-card {
-  color: #ffffff !important;
-}
-
-
 /* PAMAC THEME SWITCH */
 #pamac-theme-toggle {
   position: fixed;
@@ -269,6 +179,7 @@ body[data-pamac-theme="light"] #pamac-sales-summary .pamac-sales-card {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,.25);
 }
 
 body[data-pamac-theme="dark"] {
@@ -290,13 +201,17 @@ body[data-pamac-theme="light"] {
 
 body[data-pamac-theme="light"] .card,
 body[data-pamac-theme="light"] .panel,
-body[data-pamac-theme="light"] section,
+body[data-pamac-theme="light"] section {
+  background: white !important;
+  color: #24152f !important;
+  border-color: #d9c8e8 !important;
+}
+
 body[data-pamac-theme="light"] input,
 body[data-pamac-theme="light"] select,
 body[data-pamac-theme="light"] textarea {
   background: white !important;
   color: #24152f !important;
-  border-color: #d9c8e8 !important;
 }
 
 body[data-pamac-theme="light"] h1,

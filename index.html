@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAMAC FOOT WEAR COLLECTION</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">P</div>
+  <div>
+    <h1>PAMAC FOOT WEAR COLLECTION</h1>
+    <p>SHOE STOCK MANAGEMENT SYSTEM</p>
+  </div>
+  <span class="offline">● OFFLINE</span>
+</header>
+
+<main>
+<section class="welcome">
+  <div>
+    <small>ADMIN DASHBOARD</small>
+    <h2>Welcome to PAMAC</h2>
+    <p>Manage your footwear stock and sales.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div><span>Total stock</span><strong id="total">0</strong></div>
+  <div><span>Pairs sold</span><strong id="sold">0</strong></div>
+  <div><span>Stock value</span><strong id="value">KSh 0</strong></div>
+  <div><span>Out of stock</span><strong id="out">0</strong></div>
+</section>
+
+<nav>
+  <button class="active" onclick="showTab('inventory',this)">Inventory</button>
+  <button onclick="showTab('add',this)">Add New Stock</button>
+  <button onclick="showTab('sales',this)">Sales History</button>
+  <button onclick="showTab('backup',this)">Backup</button>
+</nav>
+
+<section id="inventory" class="tab">
+  <div class="heading">
+    <div><h2>Footwear Inventory</h2><p>Browse your eight shoe portals.</p></div>
+    <button class="primary" onclick="showTab('add')">+ Add Stock</button>
+  </div>
+  <div class="filters">
+    <input id="search" placeholder="Search shoes, codes or sizes..." oninput="render()">
+    <select id="filter" onchange="render()">
+      <option value="">All portals</option>
+    </select>
+  </div>
+  <div id="portals" class="portals"></div>
+  <div id="products" class="products"></div>
+  <p id="empty" class="empty" hidden>No products found.</p>
+</section>
+
+<section id="add" class="tab" hidden>
+  <h2 id="formHeading">Add New Stock</h2>
+  <p>Create a new shoe product or add more pairs to an existing product.</p>
+  <form id="productForm">
+    <label>Shoe portal
+      <select id="category" required></select>
+    </label>
+    <label>Shoe name / type
+      <input id="name" required placeholder="e.g. Zara, Kids, TN 132">
+    </label>
+    <label>Size / size range
+      <input id="size" placeholder="e.g. 19-24 or 37-42">
+    </label>
+    <label>Product code
+      <input id="code" placeholder="Optional">
+    </label>
+    <label>Price (KSh)
+      <input id="price" type="number" min="0" required placeholder="350">
+    </label>
+    <label>Quantity to add
+      <input id="quantity" type="number" min="0" value="1" required>
+    </label>
+    <label>Upload shoe photograph
+      <input id="photo" type="file" accept="image/*">
+    </label>
+    <div id="preview">Photo preview</div>
+    <button class="primary" type="submit">SAVE STOCK</button>
+    <button class="secondary" type="button" onclick="resetForm()">CLEAR FORM</button>
+  </form>
+</section>
+
+<section id="sales" class="tab" hidden>
+  <h2>Sales History</h2>
+  <button class="secondary" onclick="window.print()">Print sales</button>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Date</th><th>Shoe</th><th>Portal</th><th>Pairs</th><th>Total</th></tr></thead>
+      <tbody id="salesRows"></tbody>
+    </table>
+  </div>
+  <p id="noSales" class="empty">No sales recorded yet.</p>
+</section>
+
+<section id="backup" class="tab" hidden>
+  <h2>Backup & Restore</h2>
+  <p>Download a backup regularly to protect your stock records and shoe photographs.</p>
+  <button class="primary" onclick="backup()">DOWNLOAD BACKUP</button>
+  <hr>
+  <h3>Restore previous backup</h3>
+  <input type="file" id="restoreFile" accept=".json">
+  <button class="secondary" onclick="restore()">RESTORE BACKUP</button>
+  <hr>
+  <h3>Delete all data</h3>
+  <button class="danger" onclick="clearData()">DELETE ALL DATA</button>
+</section>
+
+<footer>© PAMAC FOOT WEAR COLLECTION</footer>
+</main>
+
+<dialog id="saleDialog">
+  <form id="saleForm">
+    <h2>Record Sale</h2>
+    <p id="saleProduct"></p>
+    <label>Number of pairs sold
+      <input id="saleQty" type="number" min="1" value="1" required>
+    </label>
+    <button class="primary" type="submit">CONFIRM SALE</button>
+    <button class="secondary" type="button" onclick="saleDialog.close()">CANCEL</button>
+  </form>
+</dialog>
+
+<div id="message"></div>
+<script src="app.js"></script>
+</body>
+</html>

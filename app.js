@@ -565,68 +565,28 @@ function render() {
   console.log("Terfees Shoes added successfully.");
 })();
 
-/* PAMAC THEME SWITCH - independent of inventory storage */
-(function pamacThemeSwitch() {
-  const THEME_KEY = "pamac-theme-preference-v1";
-
-  function installThemeSwitch() {
-    const savedTheme = localStorage.getItem(THEME_KEY) || "dark";
-
-    function applyTheme(theme) {
-      const selected = theme === "light" ? "light" : "dark";
-      document.body.setAttribute("data-pamac-theme", selected);
-      localStorage.setItem(THEME_KEY, selected);
-
-      const button = document.getElementById("pamac-theme-toggle");
-      if (button) {
-        button.textContent =
-          selected === "dark" ? "☀️ White Mode" : "🌙 Dark Mode";
-      }
-    }
-
-    if (document.getElementById("pamac-theme-toggle")) {
-      applyTheme(savedTheme);
-      return;
-    }
-
-    const button = document.createElement("button");
-    button.id = "pamac-theme-toggle";
-    button.type = "button";
-    button.addEventListener("click", function () {
-      const current =
-        document.body.getAttribute("data-pamac-theme") || "dark";
-      applyTheme(current === "dark" ? "light" : "dark");
-    });
-
-    document.body.appendChild(button);
-    applyTheme(savedTheme);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", installThemeSwitch);
-  } else {
-    installThemeSwitch();
-  }
-})();
-
 /* PAMAC DARK AND WHITE THEME */
 (function () {
   const KEY = "pamac-theme-preference-v1";
 
   function setupTheme() {
+    if (document.getElementById("pamac-theme-toggle")) return;
+
     let theme = localStorage.getItem(KEY) || "dark";
+    const button = document.createElement("button");
+
+    button.id = "pamac-theme-toggle";
+    button.type = "button";
 
     function applyTheme(value) {
       theme = value;
       document.body.setAttribute("data-pamac-theme", theme);
       localStorage.setItem(KEY, theme);
-      button.textContent = theme === "dark" ? "☀️ White Mode" : "🌙 Dark Mode";
+      button.textContent =
+        theme === "dark" ? "☀️ White Mode" : "🌙 Dark Mode";
     }
 
-    const button = document.createElement("button");
-    button.type = "button";
-    button.id = "pamac-theme-toggle";
-    button.addEventListener("click", () => {
+    button.addEventListener("click", function () {
       applyTheme(theme === "dark" ? "light" : "dark");
     });
 
