@@ -128,12 +128,10 @@ function showTab(name, button) {
 function renderOriginal() {
   const total = data.products.reduce((s,p) => s + Number(p.qty),0);
   const sold = data.products.reduce((s,p) => s + Number(p.sold || 0),0);
-  const value = data.products.reduce((s,p) => s + p.qty*p.price,0);
   const out = data.products.filter(p => p.qty === 0).length;
 
   $("total").textContent = total.toLocaleString();
   $("sold").textContent = sold.toLocaleString();
-  $("value").textContent = cash(value);
   $("out").textContent = out;
 
   renderPortals();
